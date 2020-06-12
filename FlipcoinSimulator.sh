@@ -21,3 +21,16 @@ done
 echo "Number of times heads has won : $Heads"
 echo "Number of times tails has won : $Tails"
 
+if [[ $Heads -eq $Tails ]]
+then
+	echo "Its Tie"
+elif [[ $Heads -le $Tails ]]
+then
+	echo "Tails won by"
+	majority_1=$(($Tails-$Heads))
+	echo $majority_1
+else
+	echo "Heads won by"
+	majority_2=$(($Heads-$Tails))
+	echo $majority_2
+fi
