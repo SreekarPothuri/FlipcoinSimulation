@@ -2,7 +2,7 @@
 
 echo "Welcome to FlipcoinSimulator Program"
 
-read -p "Enter number of times to flip a coin : " n
+read -p "Enter number of times to flip a coin greater than 42 : " n
 Heads=0
 Tails=0
 
@@ -21,16 +21,19 @@ done
 echo "Number of times heads has won : $Heads"
 echo "Number of times tails has won : $Tails"
 
-if [[ $Heads -eq $Tails ]]
+if [[ (($Heads -ge 21)) && (($Tails -ge 21)) ]]
 then
-	echo "Its Tie"
-elif [[ $Heads -le $Tails ]]
-then
-	echo "Tails won by"
-	majority_1=$(($Tails-$Heads))
-	echo $majority_1
-else
-	echo "Heads won by"
-	majority_2=$(($Heads-$Tails))
-	echo $majority_2
+	if [[ $Heads -eq $Tails ]]
+	then
+		echo "Its Tie"
+	elif [[ $Heads -le $Tails ]]
+	then
+		echo "Tails won by"
+		majority_1=$(($Tails-$Heads))
+		echo $majority_1
+	else
+		echo "Heads won by"
+		majority_2=$(($Heads-$Tails))
+		echo $majority_2
+	fi
 fi
